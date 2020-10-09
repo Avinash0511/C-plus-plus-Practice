@@ -30,7 +30,7 @@ SAMPLE OUTPUT
 Time Limit:	1.0 sec(s) for each input file.
 Memory Limit:	256 MB
 Source Limit:	1024 KB
-/*
+*/
 
 #include<bits/stdc++.h>
 using namespace std;
