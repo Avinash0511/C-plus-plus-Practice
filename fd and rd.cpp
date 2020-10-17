@@ -22,6 +22,7 @@ void interestfd(double d, double ag, double a) {
     anum = d/12;
     ans = (a*rate*anum)/100.0;
     cout<<"Total gain after "<<d<<" months is: Rs. "<<ans<<"/-"<<endl;
+    return;
 }
 void interestrd(double d, double ag, double a) {
     double rate, ans, anum;
@@ -43,10 +44,12 @@ void interestrd(double d, double ag, double a) {
     }
     anum = d/12;
     ans = (a*(pow(1+(rate/100), anum)));
-    cout<<"Total gain after "<<d<<" months is: Rs. "<<ans<<"/-"<<endl;
+    cout<<"Total gain after "<<d<<" months is: Rs. "<<ans-a<<"/-"<<endl;
 }
-void tablefd(double amount) {
-    if(amount <= 10000000.0) {
+void tablefd(double amount)
+{
+    if(amount <= 10000000.0)
+    {
         cout<<"Rate of FD Interest below Rs. 1 crore: "<<endl;
         cout<<setw(24)<<"\nMaturity Period"<<setw(12)<<"General"<<setw(12)<<"Senior Citizen"<<endl;
         cout<<setw(24)<<"1 month to 2 months"<<setw(12)<<"4.50"<<setw(12)<<"5.00"<<endl;
@@ -77,7 +80,8 @@ void tablerd(double amount) {
     cout<<setw(24)<<"18 months"<<setw(12)<<"8.50"<<setw(12)<<"9.00"<<endl;
     cout<<setw(24)<<"24 years"<<setw(12)<<"9.00"<<setw(12)<<"9.50"<<endl;
 }
-void fd() {
+void fd()
+{
     double duration;
     double amount;
     double age;
@@ -98,6 +102,8 @@ void fd() {
         cout<<"Enter age: "<<endl;
         cin>>age;
     }
+    interestfd(duration,age,amount);
+    //interestfd()
 }
 void rd() {
     double duration;
@@ -120,28 +126,55 @@ void rd() {
         cout<<"Enter age: "<<endl;
         cin>>age;
     }
+    interestrd(duration,age,amount);
 }
 
-int main() {
-    int n, i=1;
-    while(i==1) {
-        cout<<"1 - FD Calculator"<<endl;
-        cout<<"2 - RD Calculator"<<endl;
-        cout<<"3 - Exit"<<endl;
-        cout<<"\nInput your choice: ";
+void menu()
+{
+    cout<<"MENU"<<endl;
+    cout<<"1 - FD Calculator"<<endl;
+    cout<<"2 - RD Calculator"<<endl;
+    cout<<"3 - Exit"<<endl;
+    cout<<"\nInput your choice: ";
+}
+
+int main()
+{
+    char n;
+    do
+    {
+        menu();
         cin>>n;
-        if(n==1 || n==2) {
-            switch (n) {
-                case 1: fd(); break;
-                case 2: rd(); break; 
-            }
+        if(n=='1')
+            fd();
+        else if(n=='2')
+            rd();
+        else if(n=='3')
+            exit(0);
+        else
+            cout<<"Invalid\n";
+    }while(n!='3');
+
+/*    int n;
+    do
+    {
+        menu();
+        cin>>n;
+        if(isdigit(n))
+        {
+                continue;
         }
-        else if(n==3) {
-            break;
+        else
+        {
+            n=0;
         }
-        else {
-            cout<<"Invalid Input"<<endl;
+        switch (n)
+        {
+            case 1: fd(); break;
+            case 2: rd(); break;
+            case 3:exit(0); break;
+            default: cout<<"Invalid Input"<<endl;
         }
-    }
-    return 0;
+    }while(n != 3);
+*/    return 0;
 }
