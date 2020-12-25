@@ -1,4 +1,4 @@
-**Chef has a number N, Cheffina challenges the chef to check the divisibility of all the permutation of N by 3. 
+/*Chef has a number N, Cheffina challenges the chef to check the divisibility of all the permutation of N by 3. 
 If any of the permutations is divisible by 3 then print 1 else print 0.
 
 Input:
@@ -18,7 +18,7 @@ Sample Input:
 
 Sample Output:
 1
-0**
+0*/
 
 
 
