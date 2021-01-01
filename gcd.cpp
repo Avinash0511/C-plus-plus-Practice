@@ -1,41 +1,27 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-void swap(long int &n1, long int &n2)
+
+int findGCD(int num1, int num2)
 {
-	int t=n1;
-	n1=n2;
-	n2=t;
+    if(num1>num2)
+    {
+        num1 = num1 - num2;
+        findGCD(num1,num2);
+    }
+    else if(num1<num2)
+    {
+        num2 = num2-num1;
+        findGCD(num1,num2);
+    }
+    else
+    {
+        return num1;
+    }
 }
-void gcd(long int &m, long int &n)
-{
-	long int r;
-	if(m>n)
-	{
-		if(m%n==0)
-		{
-			cout<<"Greatest common divisor is:"<<n<<endl;
-			if(n==1)
-			{
-				cout<<"Above given numbers are relatively prime."<<endl;
-			}
-		}
-		else
-		{
-			r=m%n;
-			gcd(n, r);
-		}
-	}
-	else
-	{
-		swap(m,n);
-		gcd(m,n);
-	}
-}
+
 int main()
 {
-	long int a, b;
-	cout<<"Enter two numbers to find their GCD: ";
-	cin>>a>>b;
-	gcd(a,b);
-	return 0;
+    int n1,n2;
+    scanf("%d%d",&n1,&n2);
+    printf("GCD of two numbers %d and %d is: %d",n1,n2,findGCD(n1,n2));
 }
